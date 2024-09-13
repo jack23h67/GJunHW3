@@ -153,7 +153,7 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public void deleteById(int id) {
 		Connection conn=DbConnection.getDb();
-		String SQL="delete from order1 where storeid=?";
+		String SQL="delete from order1 where orderid=?";
 		
 		try {
 			PreparedStatement ps=conn.prepareStatement(SQL);
