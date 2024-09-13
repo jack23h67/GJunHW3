@@ -21,8 +21,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public void add(Customer c) {
 		Connection conn=DbConnection.getDb();
-		String SQL="insert into customer(customerno,customerusername,customername,customerpassword,customerphone,customerlevel,customeraddress,customerlevel) "
-				+ "values(?,?,?,?,?,?,?)";
+		String SQL="insert into customer(customerno,customerusername,customername,customerpassword,customerphone,customerlevel,customeraddress,customerlevel,bemembertime) "
+				+ "values(?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps=conn.prepareStatement(SQL);
@@ -33,6 +33,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(5, c.getCustomerphone());
 			ps.setString(6, c.getCustomeraddress());
 			ps.setInt(   7, c.getCustomerlevel());
+			ps.setString(8, c.getBemembertime());
 			
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -61,6 +62,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				c.setCustomerphone(rs.getString("customerphone"));
 				c.setCustomeraddress(rs.getString("customeraddress"));
 				c.setCustomerlevel(rs.getInt("customerlevel"));
+				c.setBemembertime(rs.getString("bemembertime"));
 
 				mlist.add(c);				
 			}
@@ -93,6 +95,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				c.setCustomerphone(rs.getString("customerphone"));
 				c.setCustomeraddress(rs.getString("customeraddress"));
 				c.setCustomerlevel(rs.getInt("customerlevel"));
+				c.setBemembertime(rs.getString("bemembertime"));
 				
 				mlist.add(c);			
 			}
@@ -125,6 +128,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				c.setCustomerphone(rs.getString("customerphone"));
 				c.setCustomeraddress(rs.getString("customeraddress"));
 				c.setCustomerlevel(rs.getInt("customerlevel"));
+				c.setBemembertime(rs.getString("bemembertime"));
 				
 				mlist.add(c);			
 			}
@@ -158,6 +162,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				c.setCustomerphone(rs.getString("customerphone"));
 				c.setCustomeraddress(rs.getString("customeraddress"));
 				c.setCustomerlevel(rs.getInt("customerlevel"));
+				c.setBemembertime(rs.getString("bemembertime"));
 				
 				mlist.add(c);			
 			}
@@ -193,7 +198,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public void update(Customer c) {
 		Connection conn=DbConnection.getDb();
-		String SQL="update customer set customerno=?,customerusername=?,customerpassword=?,customername=?,customerphone=?,customeraddress=?,customerlevel=?  WHERE customerid=?";
+		String SQL="update customer set customerno=?,customerusername=?,customerpassword=?,customername=?,customerphone=?,customeraddress=?,customerlevel=?,bemembertime=?  WHERE customerid=?";
 		
 		try {
 			PreparedStatement ps=conn.prepareStatement(SQL);
@@ -206,8 +211,9 @@ public class CustomerDaoImpl implements CustomerDao {
 			ps.setString(5, c.getCustomerphone());
 			ps.setString(6, c.getCustomeraddress());
 			ps.setInt(   7, c.getCustomerlevel());
+			ps.setString(8, c.getBemembertime());
 			
-			ps.setInt(   8, c.getCustomerid());
+			ps.setInt(   9, c.getCustomerid());
 					
 			ps.executeUpdate();
 			

@@ -118,7 +118,6 @@ public class CustomerRegUI extends JFrame {
 		panel_2.setLayout(null);
 		
 
-		
 		JButton customerregisterexit = new JButton("離開");
 		customerregisterexit.addMouseListener(new MouseAdapter() {
 			@Override

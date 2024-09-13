@@ -12,11 +12,12 @@ public class Customer  implements Serializable{
 	private String	customerphone;
 	private String	customeraddress;
 	private Integer	customerlevel;
+	private String  bemembertime;
 	public Customer() {
 		super();
 	}
 	public Customer(String customerno, String customerusername, String customerpassword, String customername,
-			String customerphone, String customeraddress, Integer customerlevel) {
+			String customerphone, String customeraddress, Integer customerlevel,String  bemembertime) {
 		super();
 		this.customerno = customerno;
 		this.customerusername = customerusername;
@@ -25,6 +26,7 @@ public class Customer  implements Serializable{
 		this.customerphone = customerphone;
 		this.customeraddress = customeraddress;
 		this.customerlevel = customerlevel;
+		this.bemembertime = bemembertime;
 	}
 	public Integer getCustomerid() {
 		return customerid;
@@ -73,6 +75,12 @@ public class Customer  implements Serializable{
 	}
 	public void setCustomerlevel(Integer customerlevel) {
 		this.customerlevel = customerlevel;
+	}
+	public String getBemembertime() {
+		return bemembertime;
+	}
+	public void setBemembertime(String bemembertime) {
+		this.bemembertime = bemembertime;
 	}
 	
 }
